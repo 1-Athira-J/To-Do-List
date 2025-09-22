@@ -1,11 +1,12 @@
 body {
-  background-color: #432818;
+  background-color: #11302a;
   color: #FFE6A7;
   display: flex;
   height: 90vh;
   text-align: center;
-  margin: 20px;
+  margin: 20px auto;
   font-family: "Cagliostro";
+  justify-content: center;
 }
 
 h1 {
@@ -13,25 +14,40 @@ h1 {
 }
 
 .container {
-  background-color: #99582A;
+  background-color: #036264;
   padding: 30px;
   width: 70vh;
-  margin: 0 auto;
+  height: 85vh;
+  /* margin: 0 auto; */
   border: 2px solid #BB9457;
+  overflow-y: auto;
+}
+
+.input-container {
+  display: flex;
+  gap: 5px;
 }
 
 #input-box {
+  flex: 1;
   width: 70%;
   padding: 10px;
   color: #432818;
   font-weight: bold;
-  border: 1px solid #FFE6A7;
+  font-size: large;
+  border: 2px solid #FFE6A7;
   border-radius: 5px;
   font-family: "Cagliostro";
+  cursor: text;
 }
 
 #add-btn {
-  padding: 10px;
+  padding: 13px;
+  border: 2px solid #FFE6A7;
+  border-radius: 5px;
+  background-color: #036264;
+  color: #FFE6A7;
+  cursor: pointer;
 }
 
 hr {
@@ -47,8 +63,8 @@ ul {
 
 li {
   text-align: left; 
-  background-color: #BB9457;
-  width: 90%;
+  background-color: #FFE6A7;
+  width: 95%;
   border: 1px solid #FFE6A7;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -56,7 +72,7 @@ li {
   margin-top: 10px;
   list-style: none;  
   font-weight: bold;
-  color: black;
+  color: #11302a;
 }
 
 
@@ -65,19 +81,24 @@ li {
   align-items: flex-start;
 }
 
-.completed {
+.task-span.completed {
   text-decoration: line-through;
   color: gray;
-  border: 1px solid gray;
   font-style: italic;
   font-weight: normal;
 }
 
 .edit-btn, .delete-btn {
   float: right;
-  color:rgb(0, 0, 0);
+  color:#11302a;
   cursor: pointer;
-  margin: 3px 5px;
+  margin: 0px 5px;
   border: 1px;
-  padding: 3px;
+  /* padding: 3px; */
 } 
+
+.edit-btn.completed, .delete-btn.completed {
+  color: gray;
+  font-style: italic;
+  font-weight: normal;
+}
