@@ -1,14 +1,34 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
+//get tasks saved in the local storage
 function getTasks() {
   return (JSON.parse(localStorage.getItem("tasks")) || []);
 }
 
+//Add input task to list
+function addTask() {
+  const taskText = inputBox.value.trim();
+  if (taskText === "") {
+    alert("Please write down a task");
+    return;
+  }
+
+  const tasks = getTasks();
+  tasks.push({ text: taskText, done: false });
+  saveTasks(tasks);
+
+  inputBox.value = "";
+  inputBox.focus();
+  renderTasks();
+}
+
+//save tasks to local storage
 function saveTasks(tasks) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+//list item
 function renderTasks() {
   listContainer.innerHTML = "";
   const tasks = getTasks();
@@ -32,12 +52,14 @@ function renderTasks() {
     const taskSpan = li.querySelector(".task-span");
     const deleteButton = li.querySelector(".delete-btn");
 
+    //checkbox functionality
     checkbox.addEventListener("click", () => {
       tasks[index].done = checkbox.checked;
       saveTasks(tasks);
       renderTasks();
     });
 
+    //edit list item 
     editButton.addEventListener("click", () => {
       const update = prompt("Edit Task:", taskSpan.textContent.trim());
       if (update !== null && update.trim() !== "") {
@@ -47,6 +69,8 @@ function renderTasks() {
         renderTasks();
       }
     });
+
+    //delete list item 
     deleteButton.addEventListener("click", () => {
       if (confirm("Are you sure?")) {
         tasks.splice(index, 1);
@@ -54,22 +78,7 @@ function renderTasks() {
         renderTasks();
       }
     });
-  });    
-}
-
-function addTask() {
-  const taskText = inputBox.value.trim();
-  if (taskText === "") {
-    alert("Please write down a task");
-    return;
-  }
-
-  const tasks = getTasks();
-  tasks.push({ text: taskText, done: false });
-  saveTasks(tasks);
-
-  inputBox.value = "";
-  renderTasks();
+  });
 }
 
 // Initial load

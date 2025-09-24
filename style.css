@@ -18,7 +18,6 @@ h1 {
   padding: 30px;
   width: 70vh;
   height: 85vh;
-  /* margin: 0 auto; */
   border: 2px solid #BB9457;
   overflow-y: auto;
 }
@@ -62,19 +61,18 @@ ul {
 }
 
 li {
-  text-align: left; 
-  background-color: #FFE6A7;
+  text-align: left;
+  background-color: #dac4d0;
   width: 95%;
   border: 1px solid #FFE6A7;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
   margin-top: 10px;
-  list-style: none;  
+  list-style: none;
   font-weight: bold;
   color: #11302a;
 }
-
 
 .label {
   display: flex;
@@ -88,16 +86,17 @@ li {
   font-weight: normal;
 }
 
-.edit-btn, .delete-btn {
+.edit-btn,
+.delete-btn {
   float: right;
-  color:#11302a;
+  color: #11302a;
   cursor: pointer;
   margin: 0px 5px;
   border: 1px;
-  /* padding: 3px; */
-} 
+}
 
-.edit-btn.completed, .delete-btn.completed {
+.edit-btn.completed,
+.delete-btn.completed {
   color: gray;
   font-style: italic;
   font-weight: normal;
